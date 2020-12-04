@@ -5,7 +5,7 @@ docker run \
     --name mongodb \
     --rm \
     -d \
-    -p 27017:27017 \
+    --network goals-net \
     mongo
 
 # Backend
@@ -15,6 +15,7 @@ docker run \
     --name goals-backend \
     --rm \
     -d \
+    --network goals-net \
     -p 80:80 \
     goals-node
 
@@ -29,3 +30,5 @@ docker run \
     -p 3000:3000 \
     goals-react
 
+# network
+docker network create goals-net
