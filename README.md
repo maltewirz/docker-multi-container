@@ -1,4 +1,7 @@
 
+
+# network
+docker network create goals-net
 # Database:
 
 docker run \
@@ -33,10 +36,8 @@ docker build -t goals-react ./frontend
 docker run \
     --name goals-frontend \
     --rm \
+    -v /Users/admin/Documents/docker-multi-container/frontend/src:/app/src \
     -d \
     -it \
     -p 3000:3000 \
     goals-react
-
-# network
-docker network create goals-net
