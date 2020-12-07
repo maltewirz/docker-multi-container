@@ -16,6 +16,11 @@ docker build -t goals-node ./backend
 
 docker run \
     --name goals-backend \
+    -e MONGODB_USERNAME=dude \
+    -e MONGODB_PASSWORD=secret \
+    -v logs:/app/logs \
+    -v /Users/admin/Documents/docker-multi-container/backend/:/app \
+    -v /app/node_modules \
     --rm \
     -d \
     --network goals-net \
